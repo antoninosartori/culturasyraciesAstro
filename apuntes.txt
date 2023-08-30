@@ -1,0 +1,78 @@
+Carpetas (por defecto)
+   Public
+      Permite colocar archivos que el navegador podra acceder.
+      Irian img, logotipos, etc.
+      Archivos comunes que el navegador va a solicitar (assets)
+   Src
+      Solo para desarrollo. En donde va nuestro codigo JS
+
+   astro.config.msj
+      Permite configurar astro para agregar frameworks, etc.
+   
+   package-lock.json 
+      No hay que modificarlo, trabaja en conjunto con el node_modules
+   
+   package.json 
+      Nos muestra los datos del proyecto y los scripts a ejecutar.
+         astro dev (npm run dev)
+                     Permite desarrollar el proyecto y refrescar.
+
+         astro build (npm run build)
+            Permite deployar el proyecto
+   README.md
+      Archivo de markdown para introducir informacion
+   
+   tsconfig.json
+      Para configurar TypeScript.
+
+Paginas en Astro (enrutador)
+   En la carpeta SRC, hay una carpeta por defecto llamada PAGES
+   El nombre PAGES es un nombre reservado para que Astro detecte y genere las rutas.
+   En ella se van a crear todas las paginas con el nombre de la ruta a la que se quiera acceder.
+      ej: src/pages/about.astro
+      En el ejemplo anterior, si el usuario entra a www.sitio.com.ar/about el archivo que se va a leer es el about.astro
+
+Estilos en Astro
+   La idea de Astro es crear etiquetas <style></style>
+   Al momento de compilar, astro le va a dar una clase unica para que los estilos sean de forma local (componente). Sin embargo podemos agregarle el <style is:global> para que tome estilos globales
+
+Codigo JavaScript
+   Se escribe dentro de las etiquetas de script de Astro
+   ---
+   Codigo javascript...
+   ---
+
+Fetch en Astro
+   TopLevelAwait: por defecto, Astro ya agrega un async a todas las funciones
+
+Componentes en Astro
+   Al igual que en React, podemos crear componentes e importarlos de la misma forma
+
+Props en Astro
+   Las props van a venir desde un objeto global llamado Astro
+   Dentro de Astro, podremos acceder a las props.
+   forma de llamar a las props
+   const { title, body } = Astro.props
+
+Componente Layout.astro
+   Es recomendable hacerlo para no tener que repetir codigo constantemente.
+   Puede tener cualquier nombre.
+   Sin embargo, Astro tiene una etiqueta especial llamda slot que es utilizada para todo el contenido dinamico.
+
+   Ej:
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Document</title>
+      </head>
+      <body>
+         
+         <slot />
+
+      </body>
+      </html>
+
+Imagenes en Astro
+   

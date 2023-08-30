@@ -1,0 +1,66 @@
+---
+import NavLink from "../components/NavLink.astro";
+import logo from "../../public/images/logoCyR.svg";
+
+const navLinks = [
+   {
+      text: "paquetes",
+      to: "#paquetes",
+      importance: "secondary",
+   },
+   {
+      text: "nosotros",
+      to: "#nosotros",
+      importance: "secondary",
+   },
+   {
+      text: "contactanos",
+      to: "#contacto",
+      importance: "secondary",
+   },
+   {
+      text: "blog",
+      to: "https://charlasdeviaje.blogspot.com/",
+      importance: "primary",
+   },
+];
+---
+
+<header class="fixed top-0 left-0 w-screen h-[100px] bg-transparent z-50">
+   <nav class="container flex items-center justify-between m-auto h-full">
+      <a href="#">
+         <img class="h-[80px] w-auto object-cover" src={logo} alt="" />
+      </a>
+      <ul class="flex gap-5">
+         {
+            navLinks.map((link) => (
+               <NavLink
+                  text={link.text}
+                  importance={link.importance}
+                  to={link.to}
+               />
+            ))
+         }
+      </ul>
+   </nav>
+</header>
+
+<script>
+   const header = document.querySelector("header");
+
+   window.addEventListener("scroll", () => {
+      // Ajusta el desenfoque en función del desplazamiento
+      const scrollPosition = window.scrollY;
+      if (scrollPosition < 100) {
+         header.style.backdropFilter = `blur(0px)`;
+         header.style.backgroundColor = `transparent`;
+         return
+      }
+      const maxBlur = 1; 
+      const blurValue = (scrollPosition / 100) * maxBlur;
+
+      header.style.backdropFilter = `blur(${blurValue}px)`;
+      header.style.backgroundColor = `#dddddd34`;
+   });
+</script>
+

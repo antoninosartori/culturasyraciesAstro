@@ -1,0 +1,20 @@
+---
+const { 
+   importance, 
+   to = '#',
+   text
+} = Astro.props
+
+const primaryBtn = 'text-white bg-primary'
+const secondaryBtn = 'text-white bg-secondary-900'
+
+const className = importance === 'primary' 
+   ? primaryBtn
+   : secondaryBtn
+---
+
+<li class="">
+   <a class={`${className} p-4 rounded-3xl text-lg capitalize font-medium `} href={to}>
+      {text}
+   </a>
+</li>

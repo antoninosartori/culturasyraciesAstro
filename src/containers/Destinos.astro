@@ -1,0 +1,20 @@
+---
+import TitleSubtitle from "../components/Title&Subtitle.astro";
+import TravelCard from "../components/TravelCard.astro";
+import {URL_API_TRAVELS} from "../helpers/consts.js"
+import {fetchData} from "../helpers/functions.js"
+
+const travels = await fetchData(URL_API_TRAVELS);
+---
+
+<section id="paquetes" class="pt-8">
+   <TitleSubtitle subtitle="Viajes" title="Destinos destacados del mes"/>
+   <div class="grid gap-10 sd:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 container m-auto pt-8 justify-between ">
+      {
+         travels &&
+            travels.map((travel) => (
+               <TravelCard travel={travel}/>
+            ))
+      }
+   </div>
+</section>

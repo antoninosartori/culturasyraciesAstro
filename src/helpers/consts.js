@@ -1,0 +1,1 @@
+export const URL_API_TRAVELS = "https://api.steinhq.com/v1/storages/64ef1d25d27cdd09f012a468/destinos"

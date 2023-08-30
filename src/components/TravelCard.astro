@@ -1,0 +1,23 @@
+---
+import ItemWithIcon from "../components/ItemWithIcon.astro";
+import LocationIcon from "../../public/icons/location-dot-solid.svg"
+import CalendarIcon from "../../public/icons/calendar-days-solid.svg"
+import DaysIcon from "../../public/icons/sun-solid.svg"
+const { travel } = Astro.props
+
+const {image, title, locations, travel_date, days } = travel
+---
+<article class="flex flex-col  text-secondary-700 h-[625px] shadow-md rounded-3xl ">
+   <img class="h-[350px] object-cover rounded-t-3xl" src={image} alt={`imagen del destino ${title}`} />
+   <div class="flex flex-col grow px-4 gap-4 pt-4">
+      <h4 class="text-xl font-semibold ">{title}</h4>
+      <ItemWithIcon icon={LocationIcon} text={locations} />
+      <div class="flex w-full justify-between">
+         <ItemWithIcon icon={CalendarIcon} text={travel_date} />   
+         <ItemWithIcon icon={DaysIcon} text={`${days} días`} />   
+      </div>
+   </div>
+   <div class="flex items-center justify-center pb-4">
+      <button class="bg-primary text-white p-4 rounded-3xl">¡Quiero este viaje!</button>   
+   </div>
+</article>
